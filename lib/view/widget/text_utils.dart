@@ -6,12 +6,14 @@ class TextUtils extends StatelessWidget {
   final Color color;
   final double fontSize;
   final FontWeight fontWeight;
+  final TextDecoration underLine;
 
   TextUtils(
       {required this.fontSize,
       required this.fontWeight,
       required this.text,
       required this.color,
+      required this.underLine,
       super.key});
 
   @override
@@ -19,7 +21,10 @@ class TextUtils extends StatelessWidget {
     return Text(text,
         style: GoogleFonts.lato(
           textStyle: TextStyle(
-              color: color, fontSize: fontSize, fontWeight: fontWeight),
+              decoration: underLine,
+              color: color,
+              fontSize: fontSize,
+              fontWeight: fontWeight),
         ));
   }
 }

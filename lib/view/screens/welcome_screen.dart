@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/routes/routes.dart';
 import 'package:flutter_application_1/utils/thems.dart';
+import 'package:get/get.dart';
 
 import '../widget/text_utils.dart';
 
@@ -25,6 +27,9 @@ class welcomeScreen extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const SizedBox(
+                height: 100,
+              ),
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -38,33 +43,72 @@ class welcomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextUtils(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                      text: "Asroo",
-                      color: mainColor,
-                    ),
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        text: "Asroo",
+                        color: mainColor,
+                        underLine: TextDecoration.none),
                     const SizedBox(
                       width: 7,
                     ),
                     TextUtils(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                      text: "Shoop",
-                      color: Colors.white,
-                    )
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        text: "Shoop",
+                        color: Colors.white,
+                        underLine: TextDecoration.none)
                   ],
                 ),
               ),
             ]),
+          ),
+          const SizedBox(
+            height: 250,
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: mainColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 12,
                 )),
-            onPressed: () {},
-            child: Text('get start'),
+            onPressed: () {
+              Get.offNamed(Routes.logInScreen);
+            },
+            child: TextUtils(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                text: 'get start',
+                color: Colors.white,
+                underLine: TextDecoration.none),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextUtils(
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                  text: 'Dont have an account?',
+                  color: Colors.white,
+                  underLine: TextDecoration.none),
+              TextButton(
+                  onPressed: () {
+                    Get.offNamed(Routes.SignUpScreen);
+                  },
+                  child: TextUtils(
+                    text: 'sign up',
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    underLine: TextDecoration.underline,
+                  ))
+            ],
           )
         ],
       ),
